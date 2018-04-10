@@ -1,28 +1,25 @@
 {
   "name": "bot-telegram",
   "version": "1.0.0",
-  "description": "Simple Telegram bot for posting Sinfest webcomic updates",
+  "description": "Simple Telegram bot for posting Pinterest",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "set CHANNEL=development&&node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TogusaRusso/sinfest-feed-bot.git"
+    "url": "git+https://github.com/Sedjj/bot-telegram.git"
   },
   "keywords": [
     "telegram",
-    "bot",
-    "sinfest"
+    "bot"
   ],
-  "author": "Dmitry Akentyev",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TogusaRusso/sinfest-feed-bot/issues"
-  },
-  "homepage": "https://github.com/TogusaRusso/sinfest-feed-bot#readme",
+  "author": "Eldar Salimzebarov",
+  "license": "MTI",
+  "homepage": "https://github.com/Sedjj/bot-telegram.git#readme",
   "dependencies": {
+    "config": "^1.30.0",
     "htmlparser2": "^3.9.2",
     "mongodb": "^2.2.11",
     "node-telegram-bot-api": "^0.24.0"

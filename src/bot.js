@@ -1,12 +1,13 @@
 'use strict';
 
 const Telegram = require('node-telegram-bot-api');
+const config = require('config');
 const parser = require('./parser');
 const MongoClient = require('mongodb').MongoClient;
 
-const dbUri = process.env.MONGOLAB_URI ||
-    process.env.MONGODB_URI ||
-    'mongodb://localhost:27017';
+const dbUri = config.get('db.uri');
+const token = config.get('bot.token');
+const channel = config.get('channel');
 
 MongoClient.connect(dbUri, {server: {auto_reconnect: true}}, (err, db) => {
     if (err) {
@@ -14,7 +15,7 @@ MongoClient.connect(dbUri, {server: {auto_reconnect: true}}, (err, db) => {
     }
     console.log('Connected correctly to mongodb');
 
-    const tg = new Telegram(process.env.TOKEN);
+    const tg = new Telegram(token);
     const collection = db.collection('urls');
 
     parser((url) => {
@@ -26,8 +27,8 @@ MongoClient.connect(dbUri, {server: {auto_reconnect: true}}, (err, db) => {
                 }
                 if (urls.length === 0) {
                     console.log(`that's new page`);
-                    console.log(`Sending ${url} to @${process.env.CHANNEL}`);
-                    tg.sendPhoto(`@${process.env.CHANNEL}`, url);
+                    console.log(`Sending ${url} to @${channel}`);
+                    tg.sendPhoto(`@${channel}`, url);
                     collection.insertOne({url: url}, (err, result) => {
                         if (err) {
                             return console.error(err)

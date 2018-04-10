@@ -1,9 +1,10 @@
 'use strict';
 
 const http = require('http');
+const config = require('config');
 const htmlparser = require('htmlparser2');
 
-const hostname = 'www.sinfest.net';
+const hostname = config.get('parser.hostname');
 
 function ParseTitlePage(callback) {
     const parser = new htmlparser.Parser({

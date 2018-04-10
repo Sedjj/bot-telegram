@@ -1,0 +1,18 @@
+{
+  "ip": "localhost",
+  "port": 8081,
+  "db": {
+    "name": "telegramBot",
+    "uri": "mongodb://localhost:27017/telegramBot"
+  },
+  "channel": "all_mens_fashion",
+  "bot": {
+    "token": "584249081:AAH55Ao3D7B8GqjwjXVp0xF8sMxDNkvpOGw"
+  },
+  "parser": {
+    "hostname":{
+		"mens_fashion":"www.pinterest.com/categories/mens_fashion/"
+	} 
+  }
+}
+/*mongodb://<user>:<pass>@mongo.onmodulus.net:27017/Mikha4ot*/
